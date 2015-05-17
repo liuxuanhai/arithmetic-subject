@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
+void printnumber(char *number,int n,int index);
 //进行加1操作并判断是否溢出
 bool Increment(char * number)
 {
@@ -54,7 +55,7 @@ void Print(char * number)
 		if(beginprint)
 			cout<<number[i];
 	}
-	cout<<"   ";
+	cout<<"  ";
 }
 void printtomax(int n)
 {
@@ -77,8 +78,44 @@ void printtomax(int n)
 		cerr<<e.what()<<endl;
 	}
 }
+//第二种方法实现（使用递归）
+void printtomax2(int n)
+{
+	try
+	{
+		if(n<=0)
+			throw exception("参数不合法");
+		char *number=new char[n+1];
+		number[n]='\0';
+		printnumber(number,n,-1);//调用递归方法
+	}
+	catch(exception e)
+	{
+		cerr<<e.what()<<endl;
+	}
+}
+void printnumber(char *number,int n,int index)
+{
+	//判断最后一位数字是否已经赋值，是则打印
+	if(index==n-1)
+	{
+		Print(number);
+		return;
+	}
+	//否则递归赋值，直到到达最后一位
+	else
+	{
+		//从下一位开始，0-9依次赋值
+		for(int i=0;i<10;i++)
+		{
+			number[index+1]='0'+i;
+			
+			printnumber(number,n,index+1);
+		}
+	}
+}
 int main()
 {
-	printtomax(2);
+	printtomax2(2);
 	return 0;
 }

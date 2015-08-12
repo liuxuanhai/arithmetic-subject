@@ -1,1 +1,6 @@
 F:\Github\arithmetic-subject\360test\360test\bin\Debug\360test.exe.config
+F:\Github\arithmetic-subject\360test\360test\bin\Debug\360test.exe
+F:\Github\arithmetic-subject\360test\360test\bin\Debug\360test.pdb
+F:\Github\arithmetic-subject\360test\360test\obj\Debug\360test.csprojResolveAssemblyReference.cache
+F:\Github\arithmetic-subject\360test\360test\obj\Debug\360test.exe
+F:\Github\arithmetic-subject\360test\360test\obj\Debug\360test.pdb

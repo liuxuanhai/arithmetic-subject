@@ -67,11 +67,30 @@ listnode *reverselist(listnode *head)
 	}
 	return newhead;
 }
+//递归返回条件是指针到达最后一个节点，并将它作为头结点返回，然后依次反转p，q的指向
+listnode *resertlist2(listnode *p)
+{
+	listnode* head=NULL;
+	if(p==NULL)
+		return NULL;
+	listnode *q=p->next;
+	//只有一个结点时返回
+	if(q==NULL)
+		return p;
+	head=resertlist2(q);
+	q->next=p;
+	p->next=NULL;
+	return head;
+}
 int main()
 {
 	listnode *head=init();
 	print(head);
 	head=reverselist(head);
 	print(head);
+	listnode *temp=head->next;
+	listnode *newhead=new listnode();
+	newhead->next=resertlist2(temp);
+	print(newhead);
 	return 0;
 }
